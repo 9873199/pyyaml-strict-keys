@@ -1,5 +1,6 @@
 
-__all__ = ['BaseLoader', 'FullLoader', 'SafeLoader', 'Loader', 'UnsafeLoader']
+__all__ = ['BaseLoader', 'FullLoader', 'SafeLoader', 'StrictSafeLoader',
+           'Loader', 'UnsafeLoader']
 
 from .reader import *
 from .scanner import *
@@ -36,6 +37,19 @@ class SafeLoader(Reader, Scanner, Parser, Composer, SafeConstructor, Resolver):
         Parser.__init__(self)
         Composer.__init__(self)
         SafeConstructor.__init__(self)
+        Resolver.__init__(self)
+
+# Pure-Python only: the strict duplicate-key checks live in the Python
+# constructor, so there is no corresponding C loader.
+class StrictSafeLoader(Reader, Scanner, Parser, Composer,
+        StrictSafeConstructor, Resolver):
+
+    def __init__(self, stream):
+        Reader.__init__(self, stream)
+        Scanner.__init__(self)
+        Parser.__init__(self)
+        Composer.__init__(self)
+        StrictSafeConstructor.__init__(self)
         Resolver.__init__(self)
 
 class Loader(Reader, Scanner, Parser, Composer, Constructor, Resolver):

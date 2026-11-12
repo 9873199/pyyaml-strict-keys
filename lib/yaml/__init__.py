@@ -134,6 +134,35 @@ def safe_load_all(stream):
     """
     return load_all(stream, SafeLoader)
 
+def strict_safe_load(stream):
+    """
+    Parse the first YAML document in a stream
+    and produce the corresponding Python object.
+
+    Like safe_load, using only the basic YAML tags, but additionally raise
+    a ConstructorError when a mapping contains two explicit keys that would
+    collide in the constructed Python dictionary (for example ``true`` and
+    ``1``, two spellings of the same integer, or an alias of an existing
+    key).  Merge keys (``<<``) keep their usual semantics.
+
+    Only the pure-Python loader implements these checks.
+    """
+    return load(stream, StrictSafeLoader)
+
+def strict_safe_load_all(stream):
+    """
+    Parse all YAML documents in a stream
+    and produce corresponding Python objects.
+
+    Like safe_load_all, using only the basic YAML tags, but additionally
+    raise a ConstructorError when a mapping contains two explicit keys that
+    would collide in the constructed Python dictionary.  Merge keys (``<<``)
+    keep their usual semantics.
+
+    Only the pure-Python loader implements these checks.
+    """
+    return load_all(stream, StrictSafeLoader)
+
 def unsafe_load(stream):
     """
     Parse the first YAML document in a stream

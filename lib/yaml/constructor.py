@@ -2,6 +2,7 @@
 __all__ = [
     'BaseConstructor',
     'SafeConstructor',
+    'StrictSafeConstructor',
     'FullConstructor',
     'UnsafeConstructor',
     'Constructor',
@@ -481,6 +482,160 @@ SafeConstructor.add_constructor(
 
 SafeConstructor.add_constructor(None,
         SafeConstructor.construct_undefined)
+
+class StrictSafeConstructor(SafeConstructor):
+    """A SafeConstructor variant that rejects mappings whose explicit keys
+    collide once they are constructed as Python objects.
+
+    The regular SafeConstructor silently keeps the last value when two keys
+    compare equal (``true`` and ``1``, different integer spellings, aliases of
+    the same key, ...).  This constructor raises a ConstructorError instead,
+    reporting both the first and the second occurrence.
+
+    Merge keys (``<<``) keep their usual semantics: defaults pulled in through
+    a merge may be overridden by an explicit key, and overlapping merge sources
+    keep their original priority.  Two explicit ``<<`` keys in the same mapping
+    are still rejected, and merge sources are themselves checked for duplicate
+    explicit keys.
+
+    The bookkeeping lives on loader instances, so this never modifies the
+    constructor tables or behavior of SafeLoader.
+    """
+
+    def __init__(self):
+        super().__init__()
+        # Nodes already validated before flattening.  Keyed on the node objects
+        # themselves (not their source text): an aliased node is validated only
+        # once even if reached through several aliases, while two distinct
+        # nodes spelling the same key alike are still compared by constructed
+        # value later.
+        self.strict_checked_nodes = set()
+        # Nodes whose flattened explicit keys have already been compared.
+        self.strict_key_checked_nodes = set()
+        # Per mapping node, the ids of the (key_node, value_node) pair tuples
+        # that were written explicitly, recorded before flatten_mapping.
+        # flatten_mapping deletes '<<' pairs and reorders the remaining ones,
+        # but the explicit pair tuples themselves keep their identity, which
+        # makes this the only reliable way to tell an explicit key from a
+        # merge-introduced one after flattening -- including when a merge
+        # source is reached a second time through an alias.
+        self.strict_explicit_pairs = {}
+
+    def construct_document(self, node):
+        try:
+            return super().construct_document(node)
+        finally:
+            # A ConstructorError must not leave state behind that would affect
+            # the next document of a load_all() stream.
+            self.strict_checked_nodes = set()
+            self.strict_key_checked_nodes = set()
+            self.strict_explicit_pairs = {}
+
+    def flatten_mapping(self, node):
+        # Validate against the unflattened node first, while explicit keys can
+        # still be told apart from merge keys, then run the normal flattening.
+        self._check_strict_mapping(node)
+        super().flatten_mapping(node)
+        # Check here rather than only in construct_mapping: merge sources are
+        # flattened recursively but may never be constructed as standalone
+        # values, so their duplicate explicit keys would otherwise be missed.
+        self._check_duplicate_explicit_keys(node)
+
+    def _check_strict_mapping(self, node):
+        """Validate a mapping before flatten_mapping rewrites it.
+
+        Recurses into nested mappings, sequences and merge sources, rejects
+        two explicit ``<<`` keys in the same mapping, and records which pairs
+        are explicit so construct_mapping can check them after flattening.
+        """
+        if node in self.strict_checked_nodes:
+            return
+        self.strict_checked_nodes.add(node)
+
+        explicit = []
+        merge_count = 0
+        for index, (key_node, value_node) in enumerate(node.value):
+            if key_node.tag == 'tag:yaml.org,2002:merge':
+                merge_count += 1
+                if merge_count > 1:
+                    raise ConstructorError(
+                            "while constructing a mapping", node.start_mark,
+                            "found duplicate merge key '<<'",
+                            key_node.start_mark)
+                if isinstance(value_node, MappingNode):
+                    self._check_strict_mapping(value_node)
+                elif isinstance(value_node, SequenceNode):
+                    self._check_strict_sequence(value_node)
+            else:
+                explicit.append(id(node.value[index]))
+                # Keys and values may themselves be collections.
+                self._check_strict_collection(key_node)
+                self._check_strict_collection(value_node)
+        self.strict_explicit_pairs[id(node)] = explicit
+
+    def _check_strict_collection(self, node):
+        if isinstance(node, MappingNode):
+            self._check_strict_mapping(node)
+        elif isinstance(node, SequenceNode):
+            self._check_strict_sequence(node)
+
+    def _check_strict_sequence(self, node):
+        if node in self.strict_checked_nodes:
+            return
+        self.strict_checked_nodes.add(node)
+        for child in node.value:
+            self._check_strict_collection(child)
+
+    def construct_mapping(self, node, deep=False):
+        if not isinstance(node, MappingNode):
+            raise ConstructorError(None, None,
+                    "expected a mapping node, but found %s" % node.id,
+                    node.start_mark)
+        # flatten_mapping runs all strict checks itself and is idempotent:
+        # nodes already validated are skipped, and a second flattening of an
+        # already flattened node changes nothing.
+        self.flatten_mapping(node)
+        return BaseConstructor.construct_mapping(self, node, deep=deep)
+
+    def _check_duplicate_explicit_keys(self, node):
+        """Compare the constructed keys of a flattened mapping.
+
+        Only pairs that were explicit in the source are compared, so a merged
+        default overridden by an explicit key (or the same key appearing in
+        several merge sources) keeps the documented merge priority instead of
+        being reported as a duplicate.  Collisions are decided by the
+        constructed Python objects, so ``true``/``1`` and different spellings
+        of the same integer are caught without comparing source strings.
+        """
+        explicit = set(self.strict_explicit_pairs.get(id(node), ()))
+        if node in self.strict_key_checked_nodes:
+            return
+        self.strict_key_checked_nodes.add(node)
+        seen = {}
+        seen_pairs = set()
+        for pair in node.value:
+            pair_id = id(pair)
+            if pair_id not in explicit or pair_id in seen_pairs:
+                continue
+            # A recursive self-merge (a mapping merging an alias of itself)
+            # leaves the same explicit pair tuple listed more than once after
+            # flattening; that is one source occurrence, not a duplicate.
+            seen_pairs.add(pair_id)
+            key_node = pair[0]
+            key = self.construct_object(key_node, deep=True)
+            if not isinstance(key, collections.abc.Hashable):
+                raise ConstructorError("while constructing a mapping",
+                        node.start_mark,
+                        "found unhashable key", key_node.start_mark)
+            previous_node = seen.get(key)
+            if previous_node is not None:
+                raise ConstructorError(
+                        "while constructing a mapping", node.start_mark,
+                        "found duplicate key (first occurrence at line %d, "
+                        "column %d)" % (previous_node.start_mark.line + 1,
+                                        previous_node.start_mark.column + 1),
+                        key_node.start_mark)
+            seen[key] = key_node
 
 class FullConstructor(SafeConstructor):
     # 'extend' is blacklisted because it is used by

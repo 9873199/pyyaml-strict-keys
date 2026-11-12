@@ -24,6 +24,13 @@ If you don't trust the input YAML stream, you should use:
 
     >>> yaml.safe_load(stream)
 
+If you additionally want mappings with two explicit keys that collide after
+construction (for example `true` and `1`, or two spellings of the same
+integer) to be rejected with a `ConstructorError` instead of silently keeping
+the last value, use the pure-Python strict loader:
+
+    >>> yaml.strict_safe_load(stream)
+
 ## Testing
 
 PyYAML includes a comprehensive test suite.

@@ -5,6 +5,14 @@ For a complete changelog, see:
 
 7.0.0.dev0 (TBD)
 
+* Add `yaml.StrictSafeLoader` with `yaml.strict_safe_load()` and
+  `yaml.strict_safe_load_all()`: pure-Python loaders that raise a
+  `ConstructorError` (with both occurrence marks) when a mapping contains two
+  explicit keys colliding after construction, e.g. `true` and `1`, different
+  spellings of the same integer, or aliases of the same key.  Merge keys
+  (`<<`) keep their usual semantics, including overriding merged defaults and
+  merge-source priority, while two `<<` keys in one mapping or duplicate
+  explicit keys inside merge sources are rejected.  `safe_load` is unchanged.
 * TBD
 
 6.0.2 (2024-08-06)
