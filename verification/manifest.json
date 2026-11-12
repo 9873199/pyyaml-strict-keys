@@ -1,0 +1,238 @@
+{
+  "created": "2026-11-12T17:28:06+08:00",
+  "reviewed": true,
+  "reviewer": "Codex primary agent, AI-assisted",
+  "uid": 1733,
+  "frozen_commit": "42ab4d14072972f5e0e4859b0985c4e38e0a0b39",
+  "native_trajectory_sha256": "2eba79ff1c997100587003b8b9f80f07466937beaba0d2cf0e073648e9f0ca2e",
+  "files": [
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\freeze.json",
+      "path": "freeze.json",
+      "sha256": "2d9fce7b5847707448956fbac43c49911df79c64a1035a171fd8ea44d44deb59"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\freeze-audit.json",
+      "path": "freeze-audit.json",
+      "sha256": "33160910437d7c2d95d7ccf77de9957aa21c20742775395f0917a0ddb95175b4"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\environment-reviewed.json",
+      "path": "environment-reviewed.json",
+      "sha256": "e8350068da653219fef0337ee985d6f961e4009ea051808c25d2f7bda2525bd2"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\evidence-map.json",
+      "path": "evidence-map.json",
+      "sha256": "66614ec62741cc4787167b155c70d6d21d6b8cd976c8a203aea053e526a91e1b"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\model-final-answer.txt",
+      "path": "model-final-answer.txt",
+      "sha256": "10604909b0fef2f58a282bbc5f06a11252689c5b7a0c2170d58e9c3e169b906e"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\environment-import.stdout.log",
+      "path": "environment-import.stdout.log",
+      "sha256": "9254d6c9a34a5b91b95c8d23f8d3e8d9d13dfc9ab8c4d963fc08332adf6e77e0"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\environment-import.stderr.log",
+      "path": "environment-import.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\environment-packages.stdout.log",
+      "path": "environment-packages.stdout.log",
+      "sha256": "bd32ee1573ba1954b4672b9dcebd2ea1acd1c1c0c56ae0ad10a32ea17c113f38"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\environment-packages.stderr.log",
+      "path": "environment-packages.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\acceptance-r1\\acceptance-command.json",
+      "path": "verification/acceptance-r1/acceptance-command.json",
+      "sha256": "cf396d998c97e78be5a954976031ea57e3818213748788a453fd03e54e3df087"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\acceptance-r1\\acceptance.log",
+      "path": "verification/acceptance-r1/acceptance.log",
+      "sha256": "07514993f8e4a47e4002ba446df75a326d56e12f6b24da5d8c769cd2c515704a"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\acceptance-r1\\acceptance.xml",
+      "path": "verification/acceptance-r1/acceptance.xml",
+      "sha256": "7fa459624993afafe1246710576801008410e00f305d26fc1171ba4c04c978e7"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\acceptance-r1\\regression-command.json",
+      "path": "verification/acceptance-r1/regression-command.json",
+      "sha256": "97332baf6fd670bc17288a092fbb1c98c3a33ed1b770f60e8515f057d7951f1f"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\acceptance-r1\\regression.log",
+      "path": "verification/acceptance-r1/regression.log",
+      "sha256": "329ed2185adaf9c8b092dca263076f89d828287b0e5bc184384ff91deef7423a"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\acceptance-r1\\regression.xml",
+      "path": "verification/acceptance-r1/regression.xml",
+      "sha256": "cbeffcf43ddddf0c9e7329137b3a517d31fb0446a752048b825b7b978d44b358"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\acceptance-r1\\test-results.json",
+      "path": "verification/acceptance-r1/test-results.json",
+      "sha256": "aa71f51c5bdc21fca8fd84e0889866c8d8487de76c050fa259e5e145dd63d7c0"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\acceptance-r1\\test_acceptance.py",
+      "path": "verification/acceptance-r1/test_acceptance.py",
+      "sha256": "7314f122addcb4d0cf56d8bdc0e79cd12cb888d4212b287668b2381c1774078a"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\acceptance-r2\\acceptance-command.json",
+      "path": "verification/acceptance-r2/acceptance-command.json",
+      "sha256": "4a12e309c04d70cc27485b9459d12370b5d7de15452cbaab828e5c3d80d7080a"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\acceptance-r2\\acceptance.log",
+      "path": "verification/acceptance-r2/acceptance.log",
+      "sha256": "d3f1cdc3a2b87a85588071b59f2886b814a3daeef64827d0ff4f9811c8610fc7"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\acceptance-r2\\acceptance.xml",
+      "path": "verification/acceptance-r2/acceptance.xml",
+      "sha256": "1cf1e854261529974d54080648c33e0cfbf5173b8eb4e93370c2258012867c43"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\acceptance-r2\\test-results.json",
+      "path": "verification/acceptance-r2/test-results.json",
+      "sha256": "ca841d34e36be1b98d63d86e8c5ca0f2d032775eeebe4efac6178a9e14586e1a"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\acceptance-r2\\test_acceptance.py",
+      "path": "verification/acceptance-r2/test_acceptance.py",
+      "sha256": "7ce1349c91e5f3193262a9f64be06a008de270e31241cb3e7870c6e807be0d1d"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\alias-marks-r1\\acceptance-command.json",
+      "path": "verification/alias-marks-r1/acceptance-command.json",
+      "sha256": "319dbb54e6f66dcb884f04b2cb98abf97084eb31f65bde5e08587128847a3e8a"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\alias-marks-r1\\acceptance.log",
+      "path": "verification/alias-marks-r1/acceptance.log",
+      "sha256": "3a3f6945cf0a28449fbd580b9ead3dadaabe51e2a27d4ce81119b178d32a456b"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\alias-marks-r1\\acceptance.xml",
+      "path": "verification/alias-marks-r1/acceptance.xml",
+      "sha256": "b63f641d416aa54addbdf4e268123f64a580ea24c6975df571baff8d1b52a93a"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\alias-marks-r1\\test-results.json",
+      "path": "verification/alias-marks-r1/test-results.json",
+      "sha256": "4a8d2c539b1366ac5ee4243b1849146973ac776ac8a5dfa39ebd1cdc4df49581"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\alias-marks-r1\\test_acceptance.py",
+      "path": "verification/alias-marks-r1/test_acceptance.py",
+      "sha256": "3476cf7361bbd42d27502fd05eeb599be1703d40a170cd4bf2ea620160ec293c"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\fixture-provenance-r1\\corrected-acceptance-r4.py",
+      "path": "verification/fixture-provenance-r1/corrected-acceptance-r4.py",
+      "sha256": "7ce1349c91e5f3193262a9f64be06a008de270e31241cb3e7870c6e807be0d1d"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\fixture-provenance-r1\\fixture-review.json",
+      "path": "verification/fixture-provenance-r1/fixture-review.json",
+      "sha256": "fdbb1503a20e3ba21c0be7c02d2b05738c551baa3de1d4e4e0a15a7d312a3b67"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\fixture-provenance-r1\\original-acceptance-r3.py",
+      "path": "verification/fixture-provenance-r1/original-acceptance-r3.py",
+      "sha256": "7314f122addcb4d0cf56d8bdc0e79cd12cb888d4212b287668b2381c1774078a"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\full-regression-r1\\regression-command.json",
+      "path": "verification/full-regression-r1/regression-command.json",
+      "sha256": "afc3c2c1b6f037e747efb8af8128dc4174ab8bb002e2c9ffdad6460f02edf080"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\full-regression-r1\\regression.log",
+      "path": "verification/full-regression-r1/regression.log",
+      "sha256": "62e291e03c96c13b9ef9658d60e2c83d9a9fe75dc6684d78f587e33ec446176c"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\full-regression-r1\\regression.xml",
+      "path": "verification/full-regression-r1/regression.xml",
+      "sha256": "5047554412cceb9dbeebe4d0931fe1143726d3c8544db1b534ddc66238d4c4cf"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\product-demo-r1\\command.json",
+      "path": "verification/product-demo-r1/command.json",
+      "sha256": "1bffda682cc5eb8eed78b55ba938b7d5d5211a814906f8ee485137a5438fc2d4"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\product-demo-r1\\demo_yaml.py",
+      "path": "verification/product-demo-r1/demo_yaml.py",
+      "sha256": "2f8eff1d2eecae8ad976f5e7b544dc10b1fa84cd06259a07c2fb6d0a91c944be"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\product-demo-r1\\stderr.log",
+      "path": "verification/product-demo-r1/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\product-demo-r1\\stdout.log",
+      "path": "verification/product-demo-r1/stdout.log",
+      "sha256": "ab4cb81400d2d4ae2ab369261874281d01cda4545b92412962f85d2d528b8c38"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\recorded-runtime-r1\\actual-commands.json",
+      "path": "verification/recorded-runtime-r1/actual-commands.json",
+      "sha256": "6dc1459613e00460b3d9205fc192cc18420aa00224e2ff1339ea448f99b6287d"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\recorded-runtime-r1\\alias_marks-output.log",
+      "path": "verification/recorded-runtime-r1/alias_marks-output.log",
+      "sha256": "3e41c326bf0e12e6c031bc04441b1f1c2468bed04787904f292406dc1bb7a294"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\recorded-runtime-r1\\load-output.log",
+      "path": "verification/recorded-runtime-r1/load-output.log",
+      "sha256": "ab4cb81400d2d4ae2ab369261874281d01cda4545b92412962f85d2d528b8c38"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\recorded-runtime-r1\\regression-output.log",
+      "path": "verification/recorded-runtime-r1/regression-output.log",
+      "sha256": "b19ecd57a35e21bddc6e36d156a10c164feb845dcf82593a37243dbb0c920fb9"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\recorded-runtime-r1\\spec.json",
+      "path": "verification/recorded-runtime-r1/spec.json",
+      "sha256": "2fd955038cfbad325c764b0610872c7335f52f78e89c4f202d63c741d2dc34bf"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\reproduction-notes.md",
+      "path": "verification/reproduction-notes.md",
+      "sha256": "0674b98258180c184c5b0f56a7b9576c86cdfe5c3b68d49c49e60e5f7d4153e3"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\run-provenance-r1\\engineering-fault-review.json",
+      "path": "verification/run-provenance-r1/engineering-fault-review.json",
+      "sha256": "567f9f0925867a51b751fcf2bc8ddfbd02f63144040d9b89401bb81dd9f1119d"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\run-provenance-r1\\same-configuration-recovery-probe.json",
+      "path": "verification/run-provenance-r1/same-configuration-recovery-probe.json",
+      "sha256": "a5d60d8ee25f4a0d6f390296a6659d16e029d404341e919034eb4481764aab17"
+    }
+  ],
+  "reproduction_readme": "本目录是冻结产物的独立验收原件。实际环境：Windows，Python 3.14.3，未容器化，不依赖运行期外部服务。完整依赖及真实模块路径见 environment-reviewed.json。\n\n先安装记录中的同版 Python，检出冻结产物提交并建立虚拟环境；根据实际依赖记录安装测试依赖，按 verification/reproduction-notes.md 的本题步骤配置。需要插件入口的项目（如 Bandit）在检出目录用 python -m pip install -e . 注册；纯 Python 源码入口直接按已记录 PYTHONPATH 加载。PYTHONPATH 指向检出目录、src 和 lib。各 verification 子目录保留实际 argv、原始输出、JUnit、退出码和用例。命令 JSON 中的原机绝对路径需替换为本次检出位置及相应子目录；测试断言不改。\n\n模型原轨中的测试与本目录独立验收分开记录。原生 JSONL 和75秒连续运行录像各自只有一个，保存在对应飞书附件字段，此处不另放轨迹。工程/夹具问题按 evidence-map.json 限定归因；测试通过不等于一般性安全证明。",
+  "no_model_source_edits": true,
+  "native_trace_included": false
+}

@@ -1,0 +1,28 @@
+{
+  "time": "2026-11-12T17:10:00+08:00",
+  "uid": 1733,
+  "status": "PASS",
+  "single_native_trace": "D:\\hc\\userFeedback\\cache\\runs\\uf-20261112-sec-yaml-keys-retry-1\\frozen\\trajectory-original.jsonl",
+  "trace_sha256": "2eba79ff1c997100587003b8b9f80f07466937beaba0d2cf0e073648e9f0ca2e",
+  "session_id": "898e8f07-2d17-4d54-9dbf-363cad6ccbc1",
+  "prompt_id": "676e3421-e173-45cb-bdd2-090f988dfe1f",
+  "exact_single_prompt": true,
+  "native_models": [
+    "auto_model/urm"
+  ],
+  "native_efforts": [
+    "high"
+  ],
+  "three_explicit_high_settings": true,
+  "native_success": true,
+  "frozen_files_unchanged": true,
+  "private_reasoning_excluded": true,
+  "event_counts": {
+    "queue-operation": 2,
+    "user": 65,
+    "attachment": 53,
+    "atis-latch": 18,
+    "assistant": 140,
+    "last-prompt": 18
+  }
+}

@@ -1,0 +1,20 @@
+Configuration Loader
+
+Duplicate configuration:
+role: reader
+role: writer
+Compatible loader: {'role': 'writer'}
+Strict loader rejected:
+while constructing a mapping
+  in "<unicode string>", line 1, column 1:
+    role: reader
+    ^
+found duplicate key (first occurrence at line 1, column 1)
+  in "<unicode string>", line 2, column 1:
+    role: writer
+    ^
+
+Explicit override: {'role': 'writer', 'region': 'east'}
+Separate documents: [{'name': 'first'}, {'name': 'second'}]
+Recursive alias retained: True
+{"checks": 5, "passed": 5, "source": "actual loader calls; separate verification helper"}

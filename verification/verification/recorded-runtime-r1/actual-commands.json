@@ -1,0 +1,52 @@
+[
+  {
+    "id": "load",
+    "argv": [
+      "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\tasks\\yaml-keys\\env\\Scripts\\python.exe",
+      "-B",
+      "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\product-demo-r1\\demo_yaml.py"
+    ],
+    "exit_code": 0,
+    "finished_at_seconds": 0.39
+  },
+  {
+    "id": "regression",
+    "argv": [
+      "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\tasks\\yaml-keys\\env\\Scripts\\python.exe",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--no-header",
+      "--tb=line",
+      "--disable-warnings",
+      "tests",
+      "--basetemp",
+      "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\recording\\r1\\tmp-regression"
+    ],
+    "exit_code": 0,
+    "finished_at_seconds": 29.88
+  },
+  {
+    "id": "alias_marks",
+    "argv": [
+      "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\tasks\\yaml-keys\\env\\Scripts\\python.exe",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--no-header",
+      "--tb=line",
+      "--disable-warnings",
+      "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\alias-marks-r1\\test_acceptance.py",
+      "--basetemp",
+      "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\recording\\r1\\tmp-alias-marks"
+    ],
+    "exit_code": 1,
+    "finished_at_seconds": 48.18
+  }
+]

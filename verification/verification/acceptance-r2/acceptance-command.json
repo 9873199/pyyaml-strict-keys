@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\tasks\\yaml-keys\\env\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "-s",
+    "-p",
+    "no:cacheprovider",
+    "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\acceptance-r2\\test_acceptance.py",
+    "--basetemp",
+    "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\acceptance-r2\\tmp-acceptance",
+    "--junitxml",
+    "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\acceptance-r2\\acceptance.xml",
+    "--disable-warnings"
+  ],
+  "cwd": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\frozen-artifact",
+  "PYTHONPATH": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\frozen-artifact;D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\frozen-artifact\\src;D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\frozen-artifact\\lib",
+  "python": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\tasks\\yaml-keys\\env\\Scripts\\python.exe",
+  "exit_code": 0,
+  "seconds": 2.53,
+  "log": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\acceptance-r2\\acceptance.log"
+}

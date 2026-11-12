@@ -1,0 +1,8 @@
+{
+  "reason": "Original requirement permits first occurrence in error text; requiring context_mark to equal first duplicate was an over-specific test assumption.",
+  "old_case": "acceptance-r1/test_error_locates_both_key_occurrences",
+  "old_result_retained": true,
+  "new_source": "acceptance-yaml-r4.py",
+  "model_product_edited": false,
+  "counts_from_old_assumption_excluded_from_score": true
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="5" time="0.314" timestamp="2026-11-12T17:10:14.111532+08:00" hostname="DESKTOP-BPAMAV8"><testcase classname="verification.alias-marks-r1.test_acceptance" name="test_alias_key_duplicate_reports_distinct_source_occurrences[same]" time="0.002"><failure message="AssertionError: assert 0 == 2&#10; +  where 0 = &lt;yaml.error.Mark object at 0x000002583C802D50&gt;.line&#10; +    where &lt;yaml.error.Mark object at 0x000002583C802D50&gt; = ConstructorError('while constructing a mapping', &lt;yaml.error.Mark object at 0x000002583C7F2E90&gt;, 'found duplicate key (first occurrence at line 1, column 3)', &lt;yaml.error.Mark object at 0x000002583C802D50&gt;).problem_mark">key = 'same'
+
+    @pytest.mark.parametrize('key',['same','.nan'])
+    def test_alias_key_duplicate_reports_distinct_source_occurrences(key):
+     text='? &amp;key '+key+'\n: first\n? *key\n: second\n'
+     with pytest.raises(ConstructorError) as caught:yaml.strict_safe_load(text)
+     error=caught.value
+     assert error.context_mark.line==0
+&gt;    assert error.problem_mark.line==2
+E    AssertionError: assert 0 == 2
+E     +  where 0 = &lt;yaml.error.Mark object at 0x000002583C802D50&gt;.line
+E     +    where &lt;yaml.error.Mark object at 0x000002583C802D50&gt; = ConstructorError('while constructing a mapping', &lt;yaml.error.Mark object at 0x000002583C7F2E90&gt;, 'found duplicate key (first occurrence at line 1, column 3)', &lt;yaml.error.Mark object at 0x000002583C802D50&gt;).problem_mark
+
+..\verification\alias-marks-r1\test_acceptance.py:11: AssertionError</failure></testcase><testcase classname="verification.alias-marks-r1.test_acceptance" name="test_alias_key_duplicate_reports_distinct_source_occurrences[.nan]" time="0.001"><failure message="AssertionError: assert 0 == 2&#10; +  where 0 = &lt;yaml.error.Mark object at 0x000002583D92AD50&gt;.line&#10; +    where &lt;yaml.error.Mark object at 0x000002583D92AD50&gt; = ConstructorError('while constructing a mapping', &lt;yaml.error.Mark object at 0x000002583D92AB50&gt;, 'found duplicate key (first occurrence at line 1, column 3)', &lt;yaml.error.Mark object at 0x000002583D92AD50&gt;).problem_mark">key = '.nan'
+
+    @pytest.mark.parametrize('key',['same','.nan'])
+    def test_alias_key_duplicate_reports_distinct_source_occurrences(key):
+     text='? &amp;key '+key+'\n: first\n? *key\n: second\n'
+     with pytest.raises(ConstructorError) as caught:yaml.strict_safe_load(text)
+     error=caught.value
+     assert error.context_mark.line==0
+&gt;    assert error.problem_mark.line==2
+E    AssertionError: assert 0 == 2
+E     +  where 0 = &lt;yaml.error.Mark object at 0x000002583D92AD50&gt;.line
+E     +    where &lt;yaml.error.Mark object at 0x000002583D92AD50&gt; = ConstructorError('while constructing a mapping', &lt;yaml.error.Mark object at 0x000002583D92AB50&gt;, 'found duplicate key (first occurrence at line 1, column 3)', &lt;yaml.error.Mark object at 0x000002583D92AD50&gt;).problem_mark
+
+..\verification\alias-marks-r1\test_acceptance.py:11: AssertionError</failure></testcase><testcase classname="verification.alias-marks-r1.test_acceptance" name="test_nested_duplicate_reports_both_key_lines" time="0.001" /><testcase classname="verification.alias-marks-r1.test_acceptance" name="test_quoted_merge_spelling_is_an_ordinary_business_key" time="0.002" /><testcase classname="verification.alias-marks-r1.test_acceptance" name="test_false_zero_explicit_collision_is_rejected" time="0.001" /></testsuite></testsuites>

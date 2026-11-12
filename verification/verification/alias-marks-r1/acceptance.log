@@ -1,0 +1,38 @@
+FF...
+================================== FAILURES ===================================
+_____ test_alias_key_duplicate_reports_distinct_source_occurrences[same] ______
+
+key = 'same'
+
+    @pytest.mark.parametrize('key',['same','.nan'])
+    def test_alias_key_duplicate_reports_distinct_source_occurrences(key):
+     text='? &key '+key+'\n: first\n? *key\n: second\n'
+     with pytest.raises(ConstructorError) as caught:yaml.strict_safe_load(text)
+     error=caught.value
+     assert error.context_mark.line==0
+>    assert error.problem_mark.line==2
+E    AssertionError: assert 0 == 2
+E     +  where 0 = <yaml.error.Mark object at 0x000002583C802D50>.line
+E     +    where <yaml.error.Mark object at 0x000002583C802D50> = ConstructorError('while constructing a mapping', <yaml.error.Mark object at 0x000002583C7F2E90>, 'found duplicate key (first occurrence at line 1, column 3)', <yaml.error.Mark object at 0x000002583C802D50>).problem_mark
+
+..\verification\alias-marks-r1\test_acceptance.py:11: AssertionError
+_____ test_alias_key_duplicate_reports_distinct_source_occurrences[.nan] ______
+
+key = '.nan'
+
+    @pytest.mark.parametrize('key',['same','.nan'])
+    def test_alias_key_duplicate_reports_distinct_source_occurrences(key):
+     text='? &key '+key+'\n: first\n? *key\n: second\n'
+     with pytest.raises(ConstructorError) as caught:yaml.strict_safe_load(text)
+     error=caught.value
+     assert error.context_mark.line==0
+>    assert error.problem_mark.line==2
+E    AssertionError: assert 0 == 2
+E     +  where 0 = <yaml.error.Mark object at 0x000002583D92AD50>.line
+E     +    where <yaml.error.Mark object at 0x000002583D92AD50> = ConstructorError('while constructing a mapping', <yaml.error.Mark object at 0x000002583D92AB50>, 'found duplicate key (first occurrence at line 1, column 3)', <yaml.error.Mark object at 0x000002583D92AD50>).problem_mark
+
+..\verification\alias-marks-r1\test_acceptance.py:11: AssertionError
+=========================== short test summary info ===========================
+FAILED ..\verification\alias-marks-r1\test_acceptance.py::test_alias_key_duplicate_reports_distinct_source_occurrences[same]
+FAILED ..\verification\alias-marks-r1\test_acceptance.py::test_alias_key_duplicate_reports_distinct_source_occurrences[.nan]
+2 failed, 3 passed in 0.38s

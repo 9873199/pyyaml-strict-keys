@@ -1,0 +1,40 @@
+{
+  "time": "2026-11-12T17:10:15+08:00",
+  "run_id": "uf-20261112-sec-yaml-keys-retry-1",
+  "checks": {
+    "acceptance": {
+      "tests": 5,
+      "passed": 3,
+      "failures": 2,
+      "errors": 0,
+      "skipped": 0,
+      "failure_cases": [
+        "test_alias_key_duplicate_reports_distinct_source_occurrences[same]",
+        "test_alias_key_duplicate_reports_distinct_source_occurrences[.nan]"
+      ],
+      "exit_code": 1,
+      "xfailed": 0,
+      "xpassed": 0,
+      "pytest_terminal_summary": {
+        "failed": 2,
+        "passed": 3
+      },
+      "junit_raw_counts": {
+        "tests": 5,
+        "passed": 3,
+        "failures": 2,
+        "errors": 0,
+        "skipped": 0,
+        "failure_cases": [
+          "test_alias_key_duplicate_reports_distinct_source_occurrences[same]",
+          "test_alias_key_duplicate_reports_distinct_source_occurrences[.nan]"
+        ],
+        "exit_code": 1
+      },
+      "count_source": "pytest terminal summary; XML kept unchanged"
+    }
+  },
+  "artifact_hashes_unchanged": true,
+  "score": null,
+  "feedback": "PENDING_SEMANTIC_REVIEW"
+}

@@ -1,0 +1,28 @@
+实现完成，全部测试通过（1319 个：原有 1287 + 新增 32），`safe_load` 行为完全未动。
+
+## 改动概览
+
+**新增公共 API（纯 Python，无 C 扩展）**
+- `lib/yaml/constructor.py`：`StrictSafeConstructor(SafeConstructor)`
+- `lib/yaml/loader.py`：`StrictSafeLoader`
+- `lib/yaml/__init__.py`：`strict_safe_load()` / `strict_safe_load_all()`
+- `tests/test_strict_safe_loader.py`：32 个可跑的例子
+
+## 关键设计
+
+**按构造结果判重，不看源码字符串。** `_check_duplicate_explicit_keys` 先把键节点真正 `construct_object` 成 Python 对象再放进 dict 比较，因此 `true`/`1`、`1.0`/`1`、`yes`/`true`、`010`/`8`（同一整数的不同写法）、别名引用的同一键都会碰撞报错；不可哈希键（如列表键）照常抛 `ConstructorError`，与 SafeLoader 行为一致。
+
+**报错带两个位置。** 第一次出现的行列写进 problem 文案，第二次出现放在 `problem_mark`，嵌套映射定位到内层 mapping 的标记。
+
+**合并键（`<<`）的处理分两层，解决了 flatten 后信息丢失的问题：**
+1. flatten 之前先跑 `_check_strict_mapping`，此时还能区分显式键和合并键——记录每个显式 pair 元组的 `id()`（flatten 只删 `<<` 对、重排剩余对，pair 元组对象身份不变），并拒绝同一张 mapping 里两个 `<<`。
+2. flatten 之后只对记录在案的显式 pair 判重，所以 `<<` 引入默认值再显式覆盖、多个合并来源之间重名（保留"先到优先"的原优先级）、同一来源合并两次都不会误报；递归自合并导致同一 pair 元组重复出现时按一次处理。
+
+检查放在 `flatten_mapping` 里而不是只放在 `construct_mapping`，这样内联合并源（`<<: {x:1, x:2}`，其节点本身不会被独立构造）和嵌套/别名合并源里的重复显式键也不会漏。
+
+**状态隔离与全局表保护**
+- 所有簿记（`strict_checked_nodes` 等）都是实例属性，`construct_document` 的 `finally` 里在每份文档（含异常路径）后清空，多文档加载中下一份文档不受污染。
+- `StrictSafeConstructor` 不调用任何 `add_constructor`，测试断言它与 `SafeConstructor`/`SafeLoader` 共用同一张构造器表对象，没有改动全局 SafeLoader。
+- 未触碰 `cyaml.py`，也不存在 `CStrictSafeLoader`。
+
+一个实测中确认的 YAML 语义细节：别名键在组合树里复用锚点节点对象，所以两个 `? *k` 的标记都指向锚点定义处（这是 composer 的固有行为，alias 事件本身的位置不保留在节点上），测试按实际可保证的行为断言。

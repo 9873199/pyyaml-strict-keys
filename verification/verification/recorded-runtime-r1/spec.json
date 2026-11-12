@@ -1,0 +1,69 @@
+{
+  "title": "Configuration Loader",
+  "directory": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\recording\\r1",
+  "cwd": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\frozen-artifact",
+  "capture": "wgc",
+  "environment": {
+    "PYTHONPATH": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\frozen-artifact;D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\frozen-artifact\\src;D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\frozen-artifact\\lib",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "HYPOTHESIS_STORAGE_DIRECTORY": "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\recording\\r1\\hypothesis"
+  },
+  "commands": [
+    {
+      "id": "load",
+      "label": "Load configuration and reject collisions",
+      "display": "python ..\\verification\\product-demo-r1\\demo_yaml.py",
+      "argv": [
+        "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\tasks\\yaml-keys\\env\\Scripts\\python.exe",
+        "-B",
+        "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\product-demo-r1\\demo_yaml.py"
+      ],
+      "start_at_seconds": 0
+    },
+    {
+      "id": "regression",
+      "label": "Configuration loading compatibility",
+      "display": "python -m pytest -q tests",
+      "argv": [
+        "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\tasks\\yaml-keys\\env\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--no-header",
+        "--tb=line",
+        "--disable-warnings",
+        "tests",
+        "--basetemp",
+        "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\recording\\r1\\tmp-regression"
+      ],
+      "start_at_seconds": 20
+    },
+    {
+      "id": "alias_marks",
+      "label": "Locate both occurrences of an aliased key",
+      "display": "python -m pytest -q ..\\verification\\alias-marks-r1\\test_acceptance.py",
+      "argv": [
+        "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\tasks\\yaml-keys\\env\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--no-header",
+        "--tb=line",
+        "--disable-warnings",
+        "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\verification\\alias-marks-r1\\test_acceptance.py",
+        "--basetemp",
+        "D:\\hc\\userFeedback\\cache\\execution-security-next10-20261112\\evaluation\\uf-20261112-sec-yaml-keys-retry-1\\recording\\r1\\tmp-alias-marks"
+      ],
+      "start_at_seconds": 45
+    }
+  ],
+  "frozen_sources_verified": true,
+  "separate_verification_console": true,
+  "duration_seconds": 75
+}

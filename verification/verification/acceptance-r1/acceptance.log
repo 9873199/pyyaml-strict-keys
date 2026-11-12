@@ -1,0 +1,16 @@
+.......F...............
+================================== FAILURES ===================================
+___________________ test_error_locates_both_key_occurrences ___________________
+
+    def test_error_locates_both_key_occurrences():
+     with pytest.raises(ConstructorError) as got:strict('heading: value\nrole: reader\nrole: writer')
+>    assert got.value.context_mark.line==1 and got.value.problem_mark.line==2
+E    AssertionError: assert (0 == 1)
+E     +  where 0 = <yaml.error.Mark object at 0x000002285ABAF6D0>.line
+E     +    where <yaml.error.Mark object at 0x000002285ABAF6D0> = ConstructorError('while constructing a mapping', <yaml.error.Mark object at 0x000002285ABAF6D0>, 'found duplicate key (first occurrence at line 2, column 1)', <yaml.error.Mark object at 0x000002285ABAEC50>).context_mark
+E     +      where ConstructorError('while constructing a mapping', <yaml.error.Mark object at 0x000002285ABAF6D0>, 'found duplicate key (first occurrence at line 2, column 1)', <yaml.error.Mark object at 0x000002285ABAEC50>) = <ExceptionInfo ConstructorError('while constructing a mapping', <yaml.error.Mark object at 0x000002285ABAF6D0>, 'found duplicate key (first occurrence at line 2, column 1)', <yaml.error.Mark object at 0x000002285ABAEC50>) tblen=11>.value
+
+..\verification\acceptance-r1\test_acceptance.py:11: AssertionError
+=========================== short test summary info ===========================
+FAILED ..\verification\acceptance-r1\test_acceptance.py::test_error_locates_both_key_occurrences
+1 failed, 22 passed in 0.44s
